@@ -1,12 +1,21 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X, Facebook, Instagram, Linkedin, Twitter, Mail, Phone } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Menu,
+  X,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Mail,
+  Phone,
+} from "lucide-react";
 
-import navItems from "@/data/navItems.json"
-import socialLinks from "@/data/socialLinks.json"
+import navItems from "@/data/navItems.json";
+import socialLinks from "@/data/socialLinks.json";
 
 const iconMap = {
   Facebook,
@@ -15,29 +24,43 @@ const iconMap = {
   Twitter,
   Mail,
   Phone,
-}
+};
 
 export default function NavBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showButtons, setShowButtons] = useState(true)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showButtons, setShowButtons] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setShowButtons(window.innerWidth >= 640)
-    }
+      setShowButtons(window.innerWidth >= 640);
+    };
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
 
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    handleResize();
+    handleScroll();
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-10">
+    <nav
+      className={`fixed w-full z-10 transition-all duration-300 ${
+        isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-white"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Hamburger menu on the left */}
@@ -57,7 +80,11 @@ export default function NavBar() {
           </div>
 
           {/* Logo */}
-          <div className={`flex-shrink-0 flex items-center ${!showButtons ? 'flex-grow justify-center' : ''}`}>
+          <div
+            className={`flex-shrink-0 flex items-center ${
+              !showButtons ? "flex-grow justify-center" : ""
+            }`}
+          >
             <Link href="/">
               <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
             </Link>
@@ -135,7 +162,7 @@ export default function NavBar() {
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="flex flex-wrap justify-center gap-4 px-5">
               {socialLinks.map((link) => {
-                const Icon = iconMap[link.icon]
+                const Icon = iconMap[link.icon];
                 return (
                   <Link
                     key={link.name}
@@ -150,12 +177,12 @@ export default function NavBar() {
                       <span className="h-6 w-6">Icon not available</span>
                     )}
                   </Link>
-                )
+                );
               })}
             </div>
           </div>
         </div>
       )}
     </nav>
-  )
+  );
 }
