@@ -1,8 +1,8 @@
 import HeroSection from "@/components/Hero";
 import NavBar from "@/components/Navbar";
-import StemEdu from "@/components/Stem-edu";
+import StemEdu from "@/components/StemEdu";
 import About from "@/components/About";
-import Image from "next/image";
+import StempowerLanding from "@/components/StempowerLanding";
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <StemEdu />
       <About/>
+      <StempowerLanding/>
     </>
   );
 }
