@@ -5,6 +5,7 @@ import About from "@/components/About";
 import StempowerLanding from "@/components/StempowerLanding";
 import TrustedPartnerships from "@/components/TrustedPartnerships";
 import WhyInvestInSTEM from "@/components/WhyInvest";
+import RecentNews from "@/components/News";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <StempowerLanding />
       <TrustedPartnerships />
       <WhyInvestInSTEM />
+      <RecentNews />
     </>
   );
 }
