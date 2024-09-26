@@ -1,5 +1,5 @@
 import Link from "next/link";
-import texts from "@/data/stemEdu.json";
+import texts from "@/data/stemedu.json";
 
 export default function StemEdu() {
   return (
