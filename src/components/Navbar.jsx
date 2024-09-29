@@ -83,7 +83,7 @@ export default function NavBar({ navItems, socialLinks }) {
             }`}
           >
             <Link href="/">
-              <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
+              <Image src="/images/logo.png" alt="Logo" width={70} height={70} />
             </Link>
           </div>
 
