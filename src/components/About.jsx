@@ -2,33 +2,27 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import sliderImages from "@/data/aboutSliderImages.json";
-import sliderContent from "@/data/aboutSliderContent.json";
 
-export default function Component() {
+export default function Component({ sliderImages, sliderContent }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex(
-        (prevIndex) => (prevIndex + 1) % sliderImages.images.length
+        (prevIndex) => (prevIndex + 1) % sliderImages.length
       );
     }, 3000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [sliderImages.length]);
 
   const nextImage = () => {
-    setCurrentImageIndex(
-      (prevIndex) => (prevIndex + 1) % sliderImages.images.length
-    );
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % sliderImages.length);
   };
 
   const prevImage = () => {
     setCurrentImageIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + sliderImages.images.length) %
-        sliderImages.images.length
+      (prevIndex) => (prevIndex - 1 + sliderImages.length) % sliderImages.length
     );
   };
 
@@ -37,7 +31,7 @@ export default function Component() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2 relative">
           <Image
-            src={sliderImages.images[currentImageIndex]}
+            src={sliderImages[currentImageIndex]}
             alt={`Slide ${currentImageIndex + 1}`}
             width={600}
             height={400}

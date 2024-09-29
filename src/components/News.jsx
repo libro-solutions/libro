@@ -1,25 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const newsItems = [
-  {
-    title: "BOSCH Supports STEM Education in India",
-    image: "/images/slider.jpeg",
-    link: "#",
-  },
-  {
-    title: "Infogain's Employee Volunteering",
-    image: "/images/slider.jpeg",
-    link: "#",
-  },
-  {
-    title: "Wabtec Supports STEM Education In India",
-    image: "/images/slider.jpeg",
-    link: "#",
-  },
-];
-
-export default function RecentNews() {
+export default function RecentNews({ data = [] }) {
   return (
     <section className="py-12 bg-white">
       <div className="container mx-auto px-4">
@@ -28,7 +10,7 @@ export default function RecentNews() {
           Recent News & Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {newsItems.map((item, index) => (
+          {data.map((item, index) => (
             <div
               key={index}
               className="bg-blue-600 rounded-lg overflow-hidden shadow-lg"

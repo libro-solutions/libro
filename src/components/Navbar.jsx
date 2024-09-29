@@ -14,9 +14,6 @@ import {
   Phone,
 } from "lucide-react";
 
-import navItems from "@/data/navItems.json";
-import socialLinks from "@/data/socialLinks.json";
-
 const iconMap = {
   Facebook,
   Instagram,
@@ -26,7 +23,7 @@ const iconMap = {
   Phone,
 };
 
-export default function NavBar() {
+export default function NavBar({ navItems, socialLinks }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showButtons, setShowButtons] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);

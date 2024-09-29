@@ -1,7 +1,6 @@
 import Image from "next/image";
-import heroData from "@/data/heroData.json";
 
-export default function HeroSection() {
+export default function HeroSection({ heroData }) {
   return (
     <div className="relative w-full min-h-screen lg:max-h-screen flex flex-col">
       <div className="relative w-full h-[40vh] sm:h-[60vh]">

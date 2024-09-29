@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import data from "@/data/stempowerLanding.json";
 
 const CountUp = ({ end, duration = 2000, startAnimation }) => {
   const [count, setCount] = useState(0);
@@ -31,7 +30,7 @@ const CountUp = ({ end, duration = 2000, startAnimation }) => {
   return <span>{count}</span>;
 };
 
-export default function Component() {
+export default function Component({ data }) {
   const [startAnimation, setStartAnimation] = useState(false);
   const statsRef = useRef(null);
 

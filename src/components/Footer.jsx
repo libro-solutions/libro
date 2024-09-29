@@ -1,7 +1,6 @@
-import React from 'react';
-import data from '@/data/footer.json';
+import React from "react";
 
-export default function Footer() {
+export default function Footer({ data }) {
   return (
     <footer>
       <div className="bg-blue-600 text-white p-8">
@@ -17,14 +16,16 @@ export default function Footer() {
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
               <div>
-                <h2 className="text-2xl font-bold">{data.organization.name.split(' ')[0]}</h2>
-                <h2 className="text-2xl font-bold">{data.organization.name.split(' ')[1]}</h2>
+                <h2 className="text-2xl font-bold">
+                  {data.organization.name.split(" ")[0]}
+                </h2>
+                <h2 className="text-2xl font-bold">
+                  {data.organization.name.split(" ")[1]}
+                </h2>
                 <p className="text-sm">{data.organization.description}</p>
               </div>
             </div>
-            <p className="text-sm mb-4">
-              {data.organization.details}
-            </p>
+            <p className="text-sm mb-4">{data.organization.details}</p>
             <button className="bg-yellow-400 text-blue-600 px-4 py-2 rounded font-bold">
               {data.organization.buttonText}
             </button>

@@ -1,33 +1,35 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import imagesData from '@/data/trustedPartnerships.json'
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
-export default function CombinedSliders() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const images = imagesData.images
+export default function CombinedSliders({ data }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = data.images;
 
   useEffect(() => {
     const imageTimer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 3000)
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
 
     return () => {
-      clearInterval(imageTimer)
-    }
-  }, [images.length])
+      clearInterval(imageTimer);
+    };
+  }, [images.length]);
 
   return (
     <div className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-4">Legacy of Trusted Partnerships</h2>
+        <h2 className="text-4xl font-bold text-center mb-4">
+          Legacy of Trusted Partnerships
+        </h2>
         <p className="text-center text-gray-600 mb-8">
-          We appreciate our partners&rsquo; trust, support, and encouragement in propelling us towards
-          our mission of making STEM education accessible to all.
+          We appreciate our partners&rsquo; trust, support, and encouragement in
+          propelling us towards our mission of making STEM education accessible
+          to all.
         </p>
         <div className="relative overflow-hidden">
-          <div 
+          <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentImageIndex * 25}%)` }}
           >
@@ -46,5 +48,5 @@ export default function CombinedSliders() {
         </div>
       </div>
     </div>
-  )
+  );
 }

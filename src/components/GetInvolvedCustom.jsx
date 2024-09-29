@@ -1,31 +1,28 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import textContent from '@/data/getInvolvedCustom.json'
+import { useState } from "react";
 
-export default function GetInvolved() {
-  const [country, setCountry] = useState('India')
+export default function GetInvolved({ data }) {
+  const [country, setCountry] = useState("India");
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-16">
       <div className="grid md:grid-cols-2 gap-8 items-start">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{textContent.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{data.title}</h1>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Involved</h1>
-          <p className="text-lg text-gray-700">
-            {textContent.subtitle}
-          </p>
+          <p className="text-lg text-gray-700">{data.subtitle}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <form className="space-y-4">
             <input
               type="text"
-              placeholder={textContent.form.fullNamePlaceholder}
+              placeholder={data.form.fullNamePlaceholder}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
             />
             <input
               type="email"
-              placeholder={textContent.form.emailPlaceholder}
+              placeholder={data.form.emailPlaceholder}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
             />
             <div className="grid grid-cols-3 gap-2">
@@ -72,5 +69,5 @@ export default function GetInvolved() {
         </div>
       </div>
     </div>
-  )
+  );
 }
