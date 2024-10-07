@@ -37,8 +37,8 @@ export default function Footer({ data }) {
             <ul className="space-y-2">
               {data.quickLinks.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:underline">
-                    {item}
+                  <a href={item.link} className="hover:underline">
+                    {item.text}
                   </a>
                 </li>
               ))}
@@ -109,23 +109,39 @@ export default function Footer({ data }) {
             </div>
             <h3 className="text-xl font-bold mb-4">FOLLOW US</h3>
             <div className="flex space-x-4">
-              {data.socialMedia.map((social, index) => (
-                <a key={index} href="#" className="hover:text-gray-300">
-                  <span className="sr-only">{social}</span>
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
-              ))}
+              {data.socialMedia.map((social, index) => {
+                let icon;
+                switch (social.name) {
+                  case "Facebook":
+                    icon = (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    );
+                    break;
+                  case "Instagram":
+                    icon = (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    );
+                    break;
+                  case "Linkedin":
+                    icon = (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    );
+                    break;
+                  case "Youtube":
+                    icon = (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                    );
+                    break;
+                  default:
+                    icon = null;
+                }
+                return (
+                  <a key={index} href={social.url} className="hover:text-gray-300">
+                    <span className="sr-only">{social.name}</span>
+                    {icon}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
