@@ -10,7 +10,6 @@ export default function GetInvolved({ data }) {
       <div className="grid md:grid-cols-2 gap-8 items-start">
         <div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{data.title}</h1>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Involved</h1>
           <p className="text-lg text-gray-700">{data.subtitle}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -56,7 +55,7 @@ export default function GetInvolved({ data }) {
                 className="rounded border-gray-300 text-orange-400 focus:ring-orange-400"
               />
               <label htmlFor="terms" className="text-sm text-gray-700">
-                I agree to receive communication from INDIA STEM FOUNDATION*
+                I agree to receive communication from Libro Solutions*
               </label>
             </div>
             <button

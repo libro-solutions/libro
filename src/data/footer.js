@@ -3,7 +3,7 @@ export const footer = {
     name: "LIBRO Solutions",
     description: "REVOLUTIONIZING EDUCATION",
     details:
-      "Libro is a leading EdTech company providing cutting-edge software and hardware solutions to schools, colleges, and coaching centers. We focus on AI-powered attendance systems, LMS software, and smart labs for a brighter future in education.",
+      "We help schools by providing STEAM, Robotics, and AI education along with new technology. Our goal is to prepare students for the future with hands-on learning and the latest tools. With skilled teachers and advanced labs, we make sure schools can give students the best education.",
     buttonText: "ABOUT US",
   },
   quickLinks: ["Home", "About Us", "Blog", "Services", "Contact"],

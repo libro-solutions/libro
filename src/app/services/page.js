@@ -7,6 +7,7 @@ import WhyInvestInSTEM from "@/components/WhyInvest";
 import RecentNews from "@/components/News";
 import GetInvolved from "@/components/GetInvolvedCustom";
 import NewsletterSubscription from "@/components/Subs";
+import FuturePlans from "@/components/FuturePlans";
 
 import { heroData } from "@/data/services/heroData";
 import { stemEduData } from "@/data/services/stemedu";
@@ -17,6 +18,7 @@ import { trustedPartnerships } from "@/data/services/trustedPartnerships";
 import { whyInvest } from "@/data/services/whyInvest";
 import { newsItems } from "@/data/services/news";
 import { getInvolvedData } from "@/data/services/getInvolvedCustom";
+import { futurePlans } from "@/data/services/futurePlans";
 
 export default function Services() {
   return (
@@ -27,6 +29,7 @@ export default function Services() {
         sliderImages={aboutSliderImages}
         sliderContent={aboutSliderContent}
       />
+      <FuturePlans data={futurePlans} />
       <StempowerLanding data={stempowerLanding} />
       <TrustedPartnerships data={trustedPartnerships} />
       <WhyInvestInSTEM data={whyInvest} />

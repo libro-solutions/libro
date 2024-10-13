@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Menu,
   X,
@@ -83,13 +82,14 @@ export default function NavBar({ navItems, socialLinks }) {
             }`}
           >
             <Link href="/">
-              <div className="text-2xl font-bold text-gray-800">Libro</div>
+            <div className="text-3xl font-bold italic text-gray-800">{navItems.name}</div>
+
             </Link>
           </div>
 
           {/* Navigation items for large screens */}
           <div className="hidden lg:flex lg:items-center lg:justify-center lg:flex-1">
-            {navItems.map((item) => (
+            {navItems.items.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -104,16 +104,16 @@ export default function NavBar({ navItems, socialLinks }) {
           {showButtons ? (
             <div className="hidden sm:flex sm:items-center">
               <Link
-                href="/donate"
+                href={navItems.buttons[0].href}
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium mr-2"
               >
-                Donate
+                {navItems.buttons[0].name}
               </Link>
               <Link
-                href="/contribute"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+                href={navItems.buttons[1].href}
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium"
               >
-                Contribute
+                {navItems.buttons[1].name}
               </Link>
             </div>
           ) : (

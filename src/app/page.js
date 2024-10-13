@@ -7,6 +7,7 @@ import WhyInvestInSTEM from "@/components/WhyInvest";
 import RecentNews from "@/components/News";
 import GetInvolved from "@/components/GetInvolvedCustom";
 import NewsletterSubscription from "@/components/Subs";
+import ComprehensiveSolution from "@/components/ComprehensiveSolution";
 
 import { heroData } from "@/data/home/heroData";
 import { stemEduData } from "@/data/home/stemedu";
@@ -27,7 +28,8 @@ export default function Home() {
         sliderImages={aboutSliderImages}
         sliderContent={aboutSliderContent}
       />
-      <StempowerLanding data={stempowerLanding} />
+      {/* <StempowerLanding data={stempowerLanding} /> */}
+      <ComprehensiveSolution />
       <TrustedPartnerships data={trustedPartnerships} />
       <WhyInvestInSTEM data={whyInvest} />
       <RecentNews data={newsItems} />
