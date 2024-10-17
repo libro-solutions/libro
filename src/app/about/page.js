@@ -7,6 +7,7 @@ import WhyInvestInSTEM from "@/components/WhyInvest";
 import RecentNews from "@/components/News";
 import GetInvolved from "@/components/GetInvolvedCustom";
 import NewsletterSubscription from "@/components/Subs";
+import ComprehensiveSolution from "@/components/ComprehensiveSolution";
 
 import { heroData } from "@/data/about/heroData";
 import { stemEduData } from "@/data/about/stemedu";
@@ -17,6 +18,7 @@ import { trustedPartnerships } from "@/data/about/trustedPartnerships";
 import { whyInvest } from "@/data/about/whyInvest";
 import { newsItems } from "@/data/about/news";
 import { getInvolvedData } from "@/data/about/getInvolvedCustom";
+import { comprehensiveSolution } from "@/data/about/comprehensiveSolution";
 
 export default function AboutPage() {
   return (
@@ -27,7 +29,9 @@ export default function AboutPage() {
         sliderImages={aboutSliderImages}
         sliderContent={aboutSliderContent}
       />
-      <StempowerLanding data={stempowerLanding} />
+      {/* <StempowerLanding data={stempowerLanding} /> */}
+      <ComprehensiveSolution data={comprehensiveSolution} />
+
       <TrustedPartnerships data={trustedPartnerships} />
       <WhyInvestInSTEM data={whyInvest} />
       <RecentNews data={newsItems} />
